@@ -1,10 +1,21 @@
-function NodeTree(data, left, right) {
+function Node(data, left, right) {
     return {
         data:data,
         left:left,
         left:left,
     }
 }
+function buildTree(tab, start=0, end= tab.length - 1) {
+    if(start > end) return null;
+
+    const mid = parseInt((start+end)/2) ;
+    const root = Node(tab[mid]);
+
+    root.left = buildTree(tab, start, mid -1);
+    root.right = build(tab, mid+1, end);
+
+    return root;
+};
 
 // preorder
 const preorder = (root) => {
